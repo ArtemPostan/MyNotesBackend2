@@ -36,3 +36,9 @@ build/
 
 ### Mac OS ###
 .DS_Store
+
+### Секретные ключи и авторизация
+authorized_key.json
+*.json
+*.pem
+*.key
