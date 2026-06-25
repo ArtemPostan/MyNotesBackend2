@@ -32,3 +32,10 @@ logs/
 .git
 .gitignore
 .README.md
+
+# Тесты
+src/test/
+
+# Все свойства кроме основных
+*.properties
+!src/main/resources/application*.properties

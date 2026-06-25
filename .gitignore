@@ -42,3 +42,6 @@ authorized_key.json
 *.json
 *.pem
 *.key
+
+### Тестовые конфигурации
+src/test/resources/test.properties
