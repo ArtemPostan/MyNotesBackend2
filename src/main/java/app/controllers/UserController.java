@@ -44,5 +44,16 @@ public class UserController {
         }
     }
 
+    @DeleteMapping("/{id}")
+    public void deleteUser(@PathVariable String id) {
+        logger.info("--- ЗАПРОС НА УДАЛЕНИЕ ПРИНЯТ: ID = {} ---", id);
+        userRepository.deleteById(id);
+    }
+
+    @GetMapping("/debug/paths")
+    public String debug() {
+        return "Я работаю!";
+    }
+
 
 }
