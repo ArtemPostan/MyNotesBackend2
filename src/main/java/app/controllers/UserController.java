@@ -33,7 +33,7 @@ public class UserController {
 
     @PostMapping
     public UserEntity createUser(@RequestBody UserEntity user) {
-        logger.info("Получен запрос на создание пользователя: {}", user.getEmail()); // Лог
+        logger.info("Получен запрос на создание пользователяя: {}", user.getEmail()); // Лог
 
         if (user.getId() == null) {
             user.setId(java.util.UUID.randomUUID().toString());
