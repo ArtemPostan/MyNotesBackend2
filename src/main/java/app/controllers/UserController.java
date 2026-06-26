@@ -3,6 +3,8 @@ package app.controllers;
 import app.models.UserEntity;
 import app.repositories.UserRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,16 +13,19 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/users")
 @RequiredArgsConstructor
+@CrossOrigin(origins = "https://myfronten2.website.yandexcloud.net")
 public class UserController {
 
     private final UserRepository userRepository;
     private static final Logger logger = LoggerFactory.getLogger(UserController.class);
 
     @GetMapping("/search")
-    public UserEntity getUserByEmail(@RequestParam String email) {
+    public ResponseEntity<?> getUserByEmail(@RequestParam String email) {
         return userRepository.findByEmail(email)
-                .orElseThrow(() -> new RuntimeException("Пользователь не найден!"));
+                .<ResponseEntity<?>>map(user -> ResponseEntity.ok(user)) // <- Подсказали тип Java
+                .orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).body("Пользователь с такой почтой не найден"));
     }
+
     @GetMapping
     public List<UserEntity> getAllUsers() {
         return userRepository.findAll();

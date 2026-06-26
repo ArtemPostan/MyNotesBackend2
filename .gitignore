@@ -45,3 +45,6 @@ authorized_key.json
 
 ### Тестовые конфигурации
 src/test/resources/test.properties
+
+# Локальный счетчик версий Docker
+docker-version.txt

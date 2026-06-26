@@ -4,12 +4,6 @@ authorized_key.json
 *.pem
 *.key
 
-# Локальные сборки и артефакты компиляции
-target/
-*.jar
-*.war
-build/
-
 # Настройки среды разработки
 .idea/
 *.iml
@@ -33,9 +27,6 @@ logs/
 .gitignore
 .README.md
 
-# Тесты
-src/test/
-
-# Все свойства кроме основных
-*.properties
-!src/main/resources/application*.properties
+# Скрипты автоматизации и их файлы
+deploy.ps1
+docker-version.txt
